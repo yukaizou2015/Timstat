@@ -1,0 +1,473 @@
+INPUT INSTRUCTIONS
+
+  TITLE:
+
+      RIA Example
+
+      Recurrent events in gap time
+
+  DATA:
+
+      File is violence.dat;
+
+  VARIABLE:
+
+      Names are 
+
+      case,...,
+      evio11,evio12,evio13,evio14,evio15,evio16,...;
+
+      Idvariable is case;
+
+      Usevar are evio11-evio16 evio20gt-evio34gt
+          edw1 inchi lor lorsq vioprehi
+          tte2 pddp1-pddp6;
+
+      Missing are all(999);
+
+      Categorical are evio11-evio16 evio20gt-evio34gt;
+
+      classes = c(1);
+
+
+  ANALYSIS:
+
+      Type=Mixture missing;
+
+      STARTS=100 10;
+
+
+  MODEL:
+
+      %overall%
+
+      !First event
+
+      evio11-evio16 on edw1 (11);
+
+      evio11-evio16 on inchi (12);
+
+      evio11 on pddp1 (13);
+      evio12 on pddp2 (13);
+      evio13 on pddp3 (13);
+      evio14 on pddp4 (13);
+      evio15 on pddp5 (13);
+      evio16 on pddp6 (13);
+
+
+      !Second event
+
+      evio20gt-evio25gt on lor (21);
+      evio20gt-evio25gt on lorsq (22);
+
+
+      !Third event
+
+      evio30gt-evio34gt on vioprehi (31);
+
+      evio30gt-evio34gt on tte2 (32);
+
+
+
+  OUTPUT:
+
+      Tech1 Tech8;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+
+RIA Example
+
+Recurrent events in gap time
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         170
+
+Number of dependent variables                                   17
+Number of independent variables                                 12
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   EVIO11      EVIO12      EVIO13      EVIO14      EVIO15      EVIO16
+   EVIO20GT    EVIO21GT    EVIO22GT    EVIO23GT    EVIO24GT    EVIO25GT
+   EVIO30GT    EVIO31GT    EVIO32GT    EVIO33GT    EVIO34GT
+
+Observed independent variables
+   EDW1        INCHI       LOR         LORSQ       VIOPREHI
+   TTE2        PDDP1       PDDP2       PDDP3       PDDP4
+   PDDP5       PDDP6
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  ID variable           CASE
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                1000
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage starts                               100
+  Number of final stage starts                                  10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  masyn08292003.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of patterns          32
+     Number of y patterns         0
+     Number of u patterns        32
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              EVIO11        EVIO12        EVIO13        EVIO14        EVIO15
+              ________      ________      ________      ________      ________
+ EVIO11         1.000
+ EVIO12         0.800         0.800
+ EVIO13         0.724         0.724         0.724
+ EVIO14         0.671         0.671         0.671         0.671
+ EVIO15         0.635         0.635         0.635         0.635         0.635
+ EVIO16         0.612         0.612         0.612         0.612         0.612
+ EVIO20GT       0.406         0.206         0.129         0.076         0.041
+ EVIO21GT       0.300         0.147         0.082         0.047         0.018
+ EVIO22GT       0.182         0.059         0.018         0.012         0.000
+ EVIO23GT       0.141         0.047         0.006         0.000         0.000
+ EVIO24GT       0.124         0.035         0.000         0.000         0.000
+ EVIO25GT       0.082         0.000         0.000         0.000         0.000
+ EVIO30GT       0.253         0.129         0.088         0.041         0.018
+ EVIO31GT       0.176         0.088         0.053         0.018         0.000
+ EVIO32GT       0.129         0.059         0.041         0.006         0.000
+ EVIO33GT       0.100         0.029         0.012         0.000         0.000
+ EVIO34GT       0.071         0.006         0.000         0.000         0.000
+
+
+           Covariance Coverage
+              EVIO16        EVIO20GT      EVIO21GT      EVIO22GT      EVIO23GT
+              ________      ________      ________      ________      ________
+ EVIO16         0.612
+ EVIO20GT       0.018         0.406
+ EVIO21GT       0.000         0.300         0.300
+ EVIO22GT       0.000         0.182         0.182         0.182
+ EVIO23GT       0.000         0.141         0.141         0.141         0.141
+ EVIO24GT       0.000         0.124         0.124         0.124         0.124
+ EVIO25GT       0.000         0.082         0.082         0.082         0.082
+ EVIO30GT       0.006         0.253         0.159         0.053         0.024
+ EVIO31GT       0.000         0.176         0.106         0.029         0.018
+ EVIO32GT       0.000         0.129         0.059         0.006         0.000
+ EVIO33GT       0.000         0.100         0.041         0.006         0.000
+ EVIO34GT       0.000         0.071         0.024         0.000         0.000
+
+
+           Covariance Coverage
+              EVIO24GT      EVIO25GT      EVIO30GT      EVIO31GT      EVIO32GT
+              ________      ________      ________      ________      ________
+ EVIO24GT       0.124
+ EVIO25GT       0.082         0.082
+ EVIO30GT       0.012         0.006         0.253
+ EVIO31GT       0.006         0.000         0.176         0.176
+ EVIO32GT       0.000         0.000         0.129         0.129         0.129
+ EVIO33GT       0.000         0.000         0.100         0.100         0.100
+ EVIO34GT       0.000         0.000         0.071         0.071         0.071
+
+
+           Covariance Coverage
+              EVIO33GT      EVIO34GT
+              ________      ________
+ EVIO33GT       0.100
+ EVIO34GT       0.071         0.071
+
+     WARNING: THE COVARIANCE COVERAGE FALLS BELOW THE SPECIFIED LIMIT.
+
+
+SUMMARY OF CATEGORICAL DATA PROPORTIONS
+
+    EVIO11
+      Category 1    0.800
+      Category 2    0.200
+    EVIO12
+      Category 1    0.904
+      Category 2    0.096
+    EVIO13
+      Category 1    0.927
+      Category 2    0.073
+    EVIO14
+      Category 1    0.947
+      Category 2    0.053
+    EVIO15
+      Category 1    0.963
+      Category 2    0.037
+    EVIO16
+      Category 1    0.971
+      Category 2    0.029
+    EVIO20GT
+      Category 1    0.768
+      Category 2    0.232
+    EVIO21GT
+      Category 1    0.647
+      Category 2    0.353
+    EVIO22GT
+      Category 1    0.839
+      Category 2    0.161
+    EVIO23GT
+      Category 1    0.917
+      Category 2    0.083
+    EVIO24GT
+      Category 1    0.952
+      Category 2    0.048
+    EVIO25GT
+      Category 1    0.929
+      Category 2    0.071
+    EVIO30GT
+      Category 1    0.721
+      Category 2    0.279
+    EVIO31GT
+      Category 1    0.733
+      Category 2    0.267
+    EVIO32GT
+      Category 1    0.864
+      Category 2    0.136
+    EVIO33GT
+      Category 1    0.941
+      Category 2    0.059
+    EVIO34GT
+      Category 1    0.833
+      Category 2    0.167
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Initial stage loglikelihood values, seeds, and initial stage start numbers:
+
+            -336.582  unperturbed      0
+            -336.581  603842           61
+
+
+Loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+            -336.581  unperturbed      0
+            -336.581  603842           61
+            -336.581  475420           71
+            -336.581  391179           78
+            -336.581  696773           80
+            -336.581  314084           81
+            -336.581  813779           92
+            -336.581  247224           94
+            -336.581  723775           97
+            -336.581  570908           98
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                        -336.581
+
+Information Criteria
+
+          Number of Free Parameters             24
+          Akaike (AIC)                     721.163
+          Bayesian (BIC)                   796.422
+          Sample-Size Adjusted BIC         720.429
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        170.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        170.00000          1.00000
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              170          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+          1
+
+   1   1.000
+
+
+MODEL RESULTS
+
+                   Estimates     S.E.  Est./S.E.
+
+Latent Class 1
+
+ EVIO11     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI             -0.686    0.327     -2.095
+    PDDP1              2.408    0.415      5.795
+
+ EVIO12     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI             -0.686    0.327     -2.095
+    PDDP2              2.408    0.415      5.795
+
+ EVIO13     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI             -0.686    0.327     -2.095
+    PDDP3              2.408    0.415      5.795
+
+ EVIO14     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI             -0.686    0.327     -2.095
+    PDDP4              2.408    0.415      5.795
+
+ EVIO15     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI             -0.686    0.327     -2.095
+    PDDP5              2.408    0.415      5.795
+
+ EVIO16     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI             -0.686    0.327     -2.095
+    PDDP6              2.408    0.415      5.795
+
+ EVIO20GT   ON
+    LOR               -0.022    0.025     -0.908
+    LORSQ             -0.007    0.003     -2.103
+
+ EVIO21GT   ON
+    LOR               -0.022    0.025     -0.908
+    LORSQ             -0.007    0.003     -2.103
+
+ EVIO22GT   ON
+    LOR               -0.022    0.025     -0.908
+    LORSQ             -0.007    0.003     -2.103
+
+ EVIO23GT   ON
+    LOR               -0.022    0.025     -0.908
+    LORSQ             -0.007    0.003     -2.103
+
+ EVIO24GT   ON
+    LOR               -0.022    0.025     -0.908
+    LORSQ             -0.007    0.003     -2.103
+
+ EVIO25GT   ON
+    LOR               -0.022    0.025     -0.908
+    LORSQ             -0.007    0.003     -2.103
+
+ EVIO30GT   ON
+    VIOPREHI           2.271    0.758      2.995
+    TTE2               1.113    0.310      3.588
+
+ EVIO31GT   ON
+    VIOPREHI           2.271    0.758      2.995
+    TTE2               1.113    0.310      3.588
+
+ EVIO32GT   ON
+    VIOPREHI           2.271    0.758      2.995
+    TTE2               1.113    0.310      3.588
+
+ EVIO33GT   ON
+    VIOPREHI           2.271    0.758      2.995
+    TTE2               1.113    0.310      3.588
+
+ EVIO34GT   ON
+    VIOPREHI           2.271    0.758      2.995
+    TTE2               1.113    0.310      3.588
+
+ Thresholds
+    EVIO11$1           1.589    0.231      6.880
+    EVIO12$1           2.465    0.374      6.589
+    EVIO13$1           2.965    0.396      7.487
+    EVIO14$1           3.184    0.468      6.801
+    EVIO15$1           3.552    0.590      6.019
+    EVIO16$1           3.907    0.603      6.482
+    EVIO20GT$1         0.583    0.376      1.552
+    EVIO21GT$1        -0.090    0.432     -0.208
+    EVIO22GT$1         0.909    0.604      1.505
+    EVIO23GT$1         1.667    0.819      2.034
+    EVIO24GT$1         2.248    1.103      2.038
+    EVIO25GT$1         1.840    1.108      1.661
+    EVIO30GT$1         5.514    1.522      3.622
+    EVIO31GT$1         5.035    1.294      3.892
+    EVIO32GT$1         5.326    1.207      4.413
+    EVIO33GT$1         6.014    1.478      4.069
+    EVIO34GT$1         3.992    1.204      3.315
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.117E-05
+       (ratio of smallest to largest eigenvalue)
+
+

@@ -1,0 +1,315 @@
+INPUT INSTRUCTIONS
+
+  TITLE:
+
+    RIA Example
+
+    Covariates
+
+  DATA:
+
+    File is violence.dat;
+
+  VARIABLE:
+
+    Names are 
+
+    case,...,
+    evio11,evio12,evio13,evio14,evio15,evio16,...;
+
+    Idvariable is case;
+
+    Usevar are evio11-evio16 edw1 inchi 
+    pddp1-pddp6;
+    
+    Missing are all(999);
+    
+    Categorical are evio11-evio16; 
+
+    classes = c(1);
+
+
+  ANALYSIS:
+
+    Type=Mixture missing;
+    
+    STARTS=100 10;
+
+  MODEL:
+
+    %overall%
+
+    evio11-evio16 on edw1 (1);
+
+    evio11-evio16 on inchi (2);
+
+    evio11 on pddp1 (3);
+    evio12 on pddp2 (3);
+    evio13 on pddp3 (3);
+    evio14 on pddp4 (3);
+    evio15 on pddp5 (3);
+    evio16 on pddp6 (3);
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+
+RIA Example
+
+Covariates
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         170
+
+Number of dependent variables                                    6
+Number of independent variables                                  8
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   evio11      evio12      evio13      evio14      evio15      evio16
+
+Observed independent variables
+   EDW1        INCHI       PDDP1       PDDP2       PDDP3
+   PDDP4       PDDP5       PDDP6
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  ID variable           CASE
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                1000
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage starts                               100
+  Number of final stage starts                                  10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  masyn08292003.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of patterns           6
+     Number of y patterns         0
+     Number of u patterns         6
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              evio11        evio12        evio13        evio14        evio15
+              ________      ________      ________      ________      ________
+ evio11         1.000
+ evio12         0.800         0.800
+ evio13         0.724         0.724         0.724
+ evio14         0.671         0.671         0.671         0.671
+ evio15         0.635         0.635         0.635         0.635         0.635
+ evio16         0.612         0.612         0.612         0.612         0.612
+
+
+           Covariance Coverage
+              evio16
+              ________
+ evio16         0.612
+
+
+SUMMARY OF CATEGORICAL DATA PROPORTIONS
+
+    evio11
+      Category 1    0.800
+      Category 2    0.200
+    evio12
+      Category 1    0.904
+      Category 2    0.096
+    evio13
+      Category 1    0.927
+      Category 2    0.073
+    evio14
+      Category 1    0.947
+      Category 2    0.053
+    evio15
+      Category 1    0.963
+      Category 2    0.037
+    evio16
+      Category 1    0.971
+      Category 2    0.029
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Initial stage loglikelihood values, seeds, and initial stage start numbers:
+
+            -193.844  unperturbed      0
+            -193.844  573096           20
+
+Loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+            -193.844  848163           47
+            -193.844  227563           63
+            -193.844  467339           66
+            -193.844  685657           69
+            -193.844  992389           77
+            -193.844  915642           40
+            -193.844  573096           20
+            -193.844  569833           85
+            -193.844  318230           46
+            -193.844  unperturbed      0
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                        -193.844
+
+Information Criteria
+
+          Number of Free Parameters              9
+          Akaike (AIC)                     405.688
+          Bayesian (BIC)                   433.910
+          Sample-Size Adjusted BIC         405.413
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        170.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        170.00000          1.00000
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              170          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+          1
+
+   1   1.000
+
+
+MODEL RESULTS
+
+                   Estimates     S.E.  Est./S.E.
+
+Latent Class 1
+
+ evio11     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI              -0.686    0.327     -2.095
+    PDDP1              2.408    0.415      5.795
+
+ evio12     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI              -0.686    0.327     -2.095
+    PDDP2              2.408    0.415      5.795
+
+ evio13     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI              -0.686    0.327     -2.095
+    PDDP3              2.408    0.415      5.795
+
+ evio14     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI              -0.686    0.327     -2.095
+    PDDP4              2.408    0.415      5.795
+
+ evio15     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI              -0.686    0.327     -2.095
+    PDDP5              2.408    0.415      5.795
+
+ evio16     ON
+    EDW1              -0.668    0.276     -2.422
+    INCHI              -0.686    0.327     -2.095
+    PDDP6              2.408    0.415      5.795
+
+ Thresholds
+    evio11$1           1.589    0.231      6.880
+    evio12$1           2.465    0.374      6.589
+    evio13$1           2.965    0.396      7.487
+    evio14$1           3.184    0.468      6.801
+    evio15$1           3.552    0.590      6.019
+    evio16$1           3.907    0.603      6.482
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.332E-01
+       (ratio of smallest to largest eigenvalue)
+
+

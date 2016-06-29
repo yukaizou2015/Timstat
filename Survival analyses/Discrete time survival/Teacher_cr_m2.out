@@ -1,0 +1,362 @@
+INPUT INSTRUCTIONS
+
+  TITLE:
+
+      UTEC COMPETING RISK DATA FOR FIRST OCCUPATIONAL SHIFT
+
+      Model 2
+
+  DATA:
+
+      file is teacher.dat;
+
+  VARIABLE:
+
+      names are utecid ...
+	  lcsed1-lcsed5 lcled1-lcled5 ...;
+
+      usevariables are lcsed1-lcsed5 lcled1-lcled5
+          gender blkhis;
+
+      useobs are cohort<7;
+
+      categorical are lcsed1-lcled5;
+
+      missing are all(999);
+
+      idvar is utecid;
+
+      classes = c(1);
+
+
+  ANALYSIS:
+
+      Type = Mixture Missing;
+
+      Starts = 100 10;
+
+
+  MODEL:
+
+      %overall%
+
+      lcsed1-lcsed5 on gender (1);
+      lcled1-lcled5 on gender (1);
+
+      lcsed1-lcsed5 on blkhis (3);
+      lcled1-lcled5 on blkhis (4);
+
+
+  OUTPUT:
+
+      Tech1 Tech8;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  2
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  18
+*** WARNING
+  Data set contains cases with missing on all variables except
+  x-variables.  These cases were not included in the analysis.
+  Number of cases with missing on all variables except x-variables:  41
+   3 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+
+UTEC COMPETING RISK DATA FOR FIRST OCCUPATIONAL SHIFT
+
+Model 2
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         496
+
+Number of dependent variables                                   10
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   LCSED1      LCSED2      LCSED3      LCSED4      LCSED5      LCLED1
+   LCLED2      LCLED3      LCLED4      LCLED5
+
+Observed independent variables
+   GENDER      BLKHIS
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  ID variable           UTECID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                1000
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage starts                               100
+  Number of final stage starts                                  10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  cdrdata_999_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of patterns           5
+     Number of y patterns         0
+     Number of u patterns         5
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              LCSED1        LCSED2        LCSED3        LCSED4        LCSED5
+              ________      ________      ________      ________      ________
+ LCSED1         1.000
+ LCSED2         0.692         0.692
+ LCSED3         0.476         0.476         0.476
+ LCSED4         0.282         0.282         0.282         0.282
+ LCSED5         0.159         0.159         0.159         0.159         0.159
+ LCLED1         1.000         0.692         0.476         0.282         0.159
+ LCLED2         0.692         0.692         0.476         0.282         0.159
+ LCLED3         0.476         0.476         0.476         0.282         0.159
+ LCLED4         0.282         0.282         0.282         0.282         0.159
+ LCLED5         0.159         0.159         0.159         0.159         0.159
+
+
+           Covariance Coverage
+              LCLED1        LCLED2        LCLED3        LCLED4        LCLED5
+              ________      ________      ________      ________      ________
+ LCLED1         1.000
+ LCLED2         0.692         0.692
+ LCLED3         0.476         0.476         0.476
+ LCLED4         0.282         0.282         0.282         0.282
+ LCLED5         0.159         0.159         0.159         0.159         0.159
+
+
+SUMMARY OF CATEGORICAL DATA PROPORTIONS
+
+    LCSED1
+      Category 1    0.970
+      Category 2    0.030
+    LCSED2
+      Category 1    0.953
+      Category 2    0.047
+    LCSED3
+      Category 1    0.928
+      Category 2    0.072
+    LCSED4
+      Category 1    0.936
+      Category 2    0.064
+    LCSED5
+      Category 1    0.810
+      Category 2    0.190
+    LCLED1
+      Category 1    0.978
+      Category 2    0.022
+    LCLED2
+      Category 1    0.988
+      Category 2    0.012
+    LCLED3
+      Category 1    0.962
+      Category 2    0.038
+    LCLED4
+      Category 1    0.950
+      Category 2    0.050
+    LCLED5
+      Category 1    0.975
+      Category 2    0.025
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Initial stage loglikelihood values, seeds, and initial stage start numbers:
+
+            -407.789  285380           1
+
+
+Loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+            -407.789  285380           1
+            -407.789  789985           67
+            -407.789  341041           34
+            -407.789  127215           9
+            -407.789  637345           19
+            -407.789  782200           84
+            -407.789  124999           96
+            -407.789  804561           59
+            -407.789  364676           27
+            -407.789  432148           30
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                        -407.789
+
+Information Criteria
+
+          Number of Free Parameters             13
+          Akaike (AIC)                     841.577
+          Bayesian (BIC)                   896.263
+          Sample-Size Adjusted BIC         855.000
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        496.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        496.00000          1.00000
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              496          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+          1
+
+   1   1.000
+
+
+MODEL RESULTS
+
+                   Estimates     S.E.  Est./S.E.
+
+Latent Class 1
+
+ LCSED1     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -0.263    0.290     -0.908
+
+ LCSED2     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -0.263    0.290     -0.908
+
+ LCSED3     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -0.263    0.290     -0.908
+
+ LCSED4     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -0.263    0.290     -0.908
+
+ LCSED5     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -0.263    0.290     -0.908
+
+ LCLED1     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -1.398    0.608     -2.300
+
+ LCLED2     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -1.398    0.608     -2.300
+
+ LCLED3     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -1.398    0.608     -2.300
+
+ LCLED4     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -1.398    0.608     -2.300
+
+ LCLED5     ON
+    GENDER            -0.603    0.284     -2.125
+    BLKHIS            -1.398    0.608     -2.300
+
+ Thresholds
+    LCSED1$1           3.292    0.290     11.352
+    LCSED2$1           2.849    0.263     10.827
+    LCSED3$1           2.384    0.265      9.008
+    LCSED4$1           2.494    0.341      7.312
+    LCSED5$1           1.226    0.304      4.028
+    LCLED1$1           3.423    0.303     11.286
+    LCLED2$1           4.100    0.516      7.953
+    LCLED3$1           2.887    0.355      8.142
+    LCLED4$1           2.593    0.396      6.556
+    LCLED5$1           3.257    0.726      4.488
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.744E-01
+       (ratio of smallest to largest eigenvalue)
+
+

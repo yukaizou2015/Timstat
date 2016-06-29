@@ -1,0 +1,300 @@
+INPUT INSTRUCTIONS
+
+  TITLE:
+
+    UTEC Example
+
+    No covariates
+
+  DATA:
+
+    file is teacher.dat;
+
+  VARIABLE:
+
+    names are utecid,...,elvtch1-elvtch5,...;
+
+    usevariables are elvtch1-elvtch5;
+
+    useobs are cohort<7;
+
+    categorical are elvtch1-elvtch5;
+
+    missing are all(999);
+
+    idvar is utecid;
+
+    classes = c(1);
+
+
+  ANALYSIS:
+
+    Type = Mixture Missing;
+
+    Starts = 100 10;
+
+
+  MODEL:
+
+    %overall%
+
+
+  OUTPUT:
+
+    Tech1 Tech8;
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  44
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+UTEC Example
+
+No covariates
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         513
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   elvtch1        elvtch2        elvtch3        elvtch4        elvtch5
+
+Categorical latent variables
+   C
+
+Variables with special functions
+
+  ID variable           UTECID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                1000
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage starts                               100
+  Number of final stage starts                                  10
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  cdrdata_999_Mplus.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of patterns           5
+     Number of y patterns         0
+     Number of u patterns         5
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              elvtch1          elvtch2          elvtch3          elvtch4          elvtch5
+              ________      ________      ________      ________      ________
+ elvtch1           1.000
+ elvtch2           0.686         0.686
+ elvtch3           0.468         0.468         0.468
+ elvtch4           0.281         0.281         0.281         0.281
+ elvtch5           0.158         0.158         0.158         0.158         0.158
+
+
+SUMMARY OF CATEGORICAL DATA PROPORTIONS
+
+    elvtch1
+      Category 1    0.947
+      Category 2    0.053
+    elvtch2
+      Category 1    0.938
+      Category 2    0.062
+    elvtch3
+      Category 1    0.892
+      Category 2    0.108
+    elvtch4
+      Category 1    0.889
+      Category 2    0.111
+    elvtch5
+      Category 1    0.790
+      Category 2    0.210
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Initial stage loglikelihood values, seeds, and initial stage start numbers:
+
+            -362.244  unperturbed      0
+            -362.244  575700           100
+
+Loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+            -362.244  unperturbed      0
+            -362.244  813779           92
+            -362.244  846194           93
+            -362.244  247224           94
+            -362.244  848890           95
+            -362.244  124999           96
+            -362.244  723775           97
+            -362.244  570908           98
+            -362.244  576596           99
+            -362.244  575700           100
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+TESTS OF MODEL FIT
+
+Loglikelihood
+
+          H0 Value                        -362.244
+
+Information Criteria
+
+          Number of Free Parameters              5
+          Akaike (AIC)                     734.488
+          Bayesian (BIC)                   755.690
+          Sample-Size Adjusted BIC         739.819
+            (n* = (n + 2) / 24)
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                            193.859
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            201.123
+          Degrees of Freedom                    26
+          P-Value                           0.0000
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        513.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        513.00000          1.00000
+
+
+CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              513          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+          1
+
+   1   1.000
+
+
+MODEL RESULTS
+
+                   Estimates     S.E.  Est./S.E.
+
+Latent Class 1
+
+ Thresholds
+    elvtch1$1             2.890    0.198     14.618
+    elvtch2$1             2.708    0.220     12.299
+    elvtch3$1             2.108    0.208     10.149
+    elvtch4$1             2.079    0.265      7.842
+    elvtch5$1             1.326    0.273      4.859
+
+
+RESULTS IN PROBABILITY SCALE
+
+Latent Class 1
+
+ elvtch1
+    Category 1         0.947    0.010     96.094
+    Category 2         0.053    0.010      5.339
+ elvtch2
+    Category 1         0.938    0.013     72.664
+    Category 2         0.063    0.013      4.844
+ elvtch3
+    Category 1         0.892    0.020     44.445
+    Category 2         0.108    0.020      5.400
+ elvtch4
+    Category 1         0.889    0.026     33.941
+    Category 2         0.111    0.026      4.243
+ elvtch5
+    Category 1         0.790    0.045     17.463
+    Category 2         0.210    0.045      4.638
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.525E+00
+       (ratio of smallest to largest eigenvalue)
+
+
